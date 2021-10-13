@@ -1,23 +1,25 @@
 <template>
   <div class="home">
-    <h1 class="my-5">Formularios con Vue.js</h1>
     <!--Con .prevent no se refresca la pantalla a darle al boton submit del formulario-->
     <form @submit.prevent="procesarFormulario">
       <!--se imprime el formulario y se le pasa la tarea desde el home-->
       <Input :tarea="tarea"></Input>
     </form>
     <hr>
-    <p>{{tarea}}</p>
-  </div>
+    <ListaTareas/>
+   </div>
 </template>
 <script>
 import Input from "../components/Input";
+import ListaTareas from "../components/ListaTareas";
+
 import {mapActions} from 'vuex'
 const shortId = require('shortid');
 export default {
   name: 'Home',
   components: {
-    Input
+    Input,
+    ListaTareas
   },
   data() {
     return {
